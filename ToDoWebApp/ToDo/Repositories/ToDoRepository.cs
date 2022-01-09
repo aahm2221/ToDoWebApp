@@ -16,7 +16,7 @@ namespace ToDo
 
         public Task AddTask(string description)
         {
-            Task response = new Task();
+            Task response = null;
             using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("ToDo_AddTaskByDescription", connection);
@@ -65,7 +65,7 @@ namespace ToDo
 
         public List<Task> GetTasks()
         {
-            List<Task> response = new List<Task>();
+            List<Task> response = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("ToDo_AddAllTasks", connection);
@@ -74,6 +74,7 @@ namespace ToDo
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
+                    response = new List<Task>();
                     while (reader.Read())
                     {
                         response.Add( new Task
@@ -95,7 +96,7 @@ namespace ToDo
 
         public Task ToggleComplete(int Id)
         {
-            Task response = new Task();
+            Task response = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("ToDo_ToggleCompleteById", connection);
