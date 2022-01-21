@@ -1,7 +1,17 @@
+using ToDo;
+using ToDo.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Configuration.AddJsonFile("appsettings.json");
+
+builder.Services.AddSingleton<IToDoRepository>(new ToDoRepository(builder.Configuration.GetConnectionString("ToDoConnectionString")))
+    .AddSingleton<IToDoService, ToDoService>();
+
+
 
 var app = builder.Build();
 

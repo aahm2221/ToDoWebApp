@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -14,5 +14,72 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #808080;
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#title {
+    padding: 25px 0px 10px 0px;
+    text-decoration: underline;
+}
+
+.list-group-item {
+    background-color: #808080;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.description.done {
+    text-decoration: line-through;
+    color: #b4b4b4;
+}
+
+.description{
+    flex-grow: 4;
+}
+
+.delete {
+    background-color: #808080;
+    color: #808080;
+    height: 23px;
+    width: 23px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.delete:hover {
+    background-color: #b4b4b4;
+    color: #808080;
+}
+
+input {
+    width: 100%;
+    background-color: #808080;
+    border:none;
+    color: white;
+}
+
+.addItem {
+    width: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b4b4b4;
+}
+
+.description.done:hover {
+    color: white;
 }

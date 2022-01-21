@@ -68,7 +68,7 @@ namespace ToDo
             List<Task> response = new List<Task>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("ToDo_AddAllTasks", connection);
+                SqlCommand command = new SqlCommand("ToDo_GetAllTasks", connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 try
                 {

@@ -4,7 +4,27 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <h1 class="col" id="title">Things To Do:</h1>
 </div>
+<ul class="list-group list-group-flush">
+    @if (Model != null && Model.Tasks != null)
+    {
+        foreach (var task in Model.Tasks)
+        {
+            <li class="list-group-item">
+                <a asp-page-handler="ToggleComplete" asp-route-id="@task.Id" class="description @(@task.IsCompleted ? "done" : "")">@task.Description</a>
+                <form asp-page-handler="DeleteTask" method ="post">
+                    <button asp-page-handler="DeleteTask" asp-route-id="@task.Id" class="delete">X</button>
+                    <input type="hidden" name="id" value="@task.Id"/>
+                </form>
+            </li>
+        }
+    }
+    <li class="list-group-item">
+        <form asp-page-handler="AddTask" method ="post" class="addItem">
+            <input  name="description" />
+        </form>
+    </li>
+</ul>
+
